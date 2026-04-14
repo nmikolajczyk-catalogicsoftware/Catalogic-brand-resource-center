@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DPX + vStor + GuardMode — Brand Resource Center</title>
+<meta name="description" content="Official brand guidelines, logos, colors, and typography for Catalogic DPX, vStor, and GuardMode.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #2D3494;
+    --green: #8BBE41;
+    --green-dark: #6E9A2E;
+    --black: #171717;
+    --white: #FFFFFF;
+    --bg: #f7f7fa;
+    --border: #e4e6ed;
+    --text: #2c3e50;
+    --text-muted: #7f8c8d;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
+  h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; }
+
+  /* Header */
+  .hero { background: linear-gradient(135deg, var(--blue) 0%, #1a1f5e 50%, #0f1340 100%); padding: 40px 48px 36px; color: white; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: space-between; }
+  .hero::before { content:''; position:absolute; top:-40%; right:-5%; width:500px; height:500px; background:radial-gradient(circle, rgba(139,190,65,0.15) 0%, transparent 65%); border-radius:50%; }
+  .hero-left { display: flex; align-items: center; gap: 24px; position: relative; z-index: 1; }
+  .hero-logos { display: flex; align-items: center; gap: 20px; }
+  .hero-logos svg { height: 36px; width: auto; }
+  .hero-text h1 { font-size: 14px; font-weight: 600; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px; }
+  .hero-text p { font-size: 15px; opacity: 0.7; margin-top: 2px; font-family: 'Inter', sans-serif; font-weight: 400; }
+  .hero-sep { width: 1px; height: 32px; background: rgba(255,255,255,0.2); }
+
+  /* Nav */
+  .nav { display:flex; gap:0; background:white; border-bottom:2px solid var(--border); padding:0 48px; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,0.04); overflow-x:auto; }
+  .nav a { padding:14px 24px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); text-decoration:none; border-bottom:3px solid transparent; white-space:nowrap; transition:all .15s; font-family:'Inter',sans-serif; }
+  .nav a:hover { color:var(--text); }
+  .nav a.active { color:var(--blue); border-bottom-color:var(--blue); }
+
+  /* Sections */
+  .page { max-width:1200px; margin:0 auto; padding:0 48px 0; }
+  .section { display:none; }
+  .section.active { display:block; }
+  .section-title { font-family:'Poppins',sans-serif; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin:40px 0 20px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+
+  /* Logo Showcase */
+  .logo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px; margin-bottom:16px; }
+  .logo-card { border-radius:12px; padding:40px 32px; display:flex; align-items:center; justify-content:center; min-height:180px; border:1px solid var(--border); position:relative; overflow:hidden; }
+  .logo-card svg { max-width:300px; height:auto; }
+  .logo-card .card-label { position:absolute; bottom:10px; left:14px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; padding:2px 8px; border-radius:4px; backdrop-filter:blur(4px); font-family:'Inter',sans-serif; }
+  .logo-card .card-file { position:absolute; bottom:10px; right:14px; font-size:9px; font-weight:600; opacity:.5; text-transform:uppercase; letter-spacing:.5px; font-family:'Inter',sans-serif; }
+  .bg-white { background:#fff; } .bg-white .card-label { background:rgba(0,0,0,.06); color:var(--text); } .bg-white .card-file { color:var(--text); }
+  .bg-light { background:#f0f1f5; } .bg-light .card-label { background:rgba(0,0,0,.06); color:var(--text); } .bg-light .card-file { color:var(--text); }
+  .bg-dark { background:var(--black); } .bg-dark .card-label { background:rgba(255,255,255,.1); color:#fff; } .bg-dark .card-file { color:#fff; }
+  .bg-blue { background:var(--blue); } .bg-blue .card-label { background:rgba(255,255,255,.15); color:#fff; } .bg-blue .card-file { color:#fff; }
+  .bg-photo { background:linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%); } .bg-photo .card-label { background:rgba(255,255,255,.1); color:#fff; } .bg-photo .card-file { color:#fff; }
+
+  /* Color Palette */
+  .palette-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:16px; }
+  .palette-card { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .palette-swatch { height:120px; display:flex; align-items:flex-end; padding:12px 16px; }
+  .palette-swatch .hex { font-size:14px; font-weight:700; font-family:'SF Mono','Fira Code',monospace; }
+  .palette-info { padding:16px; }
+  .palette-info h4 { font-size:14px; margin-bottom:8px; }
+  .palette-info table { width:100%; font-size:12px; }
+  .palette-info td { padding:3px 0; } .palette-info td:first-child { color:var(--text-muted); font-weight:600; width:70px; }
+
+  /* Typography */
+  .type-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:32px; margin-bottom:20px; }
+  .type-card h4 { font-size:13px; color:var(--text-muted); font-weight:700; margin-bottom:12px; text-transform:uppercase; letter-spacing:.5px; }
+  .type-sample-heading { font-family:'Poppins',sans-serif; }
+  .type-sample-body { font-family:'Inter',sans-serif; }
+  .type-combo { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:40px; margin-bottom:20px; }
+  .type-combo-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--blue); margin-bottom:16px; font-family:'Inter',sans-serif; }
+  .type-spec { margin-top:16px; padding-top:12px; border-top:1px dashed var(--border); font-size:11px; color:var(--text-muted); font-family:'Inter',sans-serif; }
+
+  /* Rules */
+  .rule-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px 28px; margin-bottom:12px; display:flex; align-items:flex-start; gap:16px; }
+  .rule-icon { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; margin-top:2px; }
+  .rule-do .rule-icon { background:#e8f5e9; color:#2e7d32; } .rule-dont .rule-icon { background:#ffebee; color:#c62828; }
+  .rule-card h5 { font-size:14px; margin-bottom:2px; } .rule-card p { font-size:13px; color:var(--text-muted); font-family:'Inter',sans-serif; }
+
+  /* Downloads */
+  .dl-row { display:flex; align-items:center; justify-content:space-between; padding:14px 0; border-bottom:1px solid #f0f1f5; gap:16px; }
+  .dl-row:last-child { border-bottom:none; }
+  .dl-left { display:flex; align-items:center; gap:14px; min-width:0; }
+  .dl-info { display:flex; flex-direction:column; gap:2px; min-width:0; }
+  .dl-name { font-size:13px; font-weight:600; }
+  .dl-desc { font-size:11px; color:var(--text-muted); }
+  .dl-buttons { display:flex; gap:6px; flex-shrink:0; }
+  .dl-btn { display:inline-flex; align-items:center; padding:5px 12px; border-radius:6px; font-size:11px; font-weight:700; text-decoration:none; text-transform:uppercase; letter-spacing:.3px; transition:all .15s; cursor:pointer; border:none; font-family:'Inter',sans-serif; }
+  .dl-btn-svg { background:#edf7ed; color:#2e7d32; } .dl-btn-svg:hover { background:#c8e6c9; }
+  .dl-btn-png { background:#e3f2fd; color:#1565c0; } .dl-btn-png:hover { background:#bbdefb; }
+  .dl-btn-pdf { background:#ffebee; color:#b71c1c; } .dl-btn-pdf:hover { background:#ffcdd2; }
+  .dl-btn-zip { background:#efebe9; color:#4e342e; } .dl-btn-zip:hover { background:#d7ccc8; }
+  .dl-section-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px 28px; margin-bottom:20px; }
+  .dl-section-card h4 { font-size:15px; margin-bottom:4px; }
+
+  /* Product overview */
+  .product-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:20px; }
+  .product-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:32px; }
+  .product-card h3 { font-size:18px; font-weight:700; color:var(--blue); margin-bottom:8px; font-family:'Poppins',sans-serif; }
+  .product-card .tagline { font-size:13px; font-weight:600; color:var(--green-dark); margin-bottom:12px; }
+  .product-card p { font-size:13px; color:var(--text-muted); line-height:1.7; }
+
+  /* Footer */
+  .footer { background:var(--black); color:rgba(255,255,255,0.5); padding:40px 48px; margin-top:60px; font-size:12px; font-family:'Inter',sans-serif; line-height:1.8; }
+  .footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; }
+  .footer-left { max-width:500px; }
+  .footer a { color:rgba(255,255,255,0.6); text-decoration:none; } .footer a:hover { color:#fff; }
+
+  @media (max-width:768px) {
+    .hero { padding:32px 20px; flex-direction:column; gap:16px; }
+    .nav { padding:0 20px; }
+    .page { padding:0 20px 0; }
+    .logo-grid { grid-template-columns:1fr; }
+    .palette-grid { grid-template-columns:1fr; }
+    .product-grid { grid-template-columns:1fr; }
+    .footer-inner { flex-direction:column; }
+    .dl-row { flex-direction:column; align-items:flex-start; gap:10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-logos">
+      <!-- DPX logo white+accent -->
+      <svg viewBox="0 0 402 96" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:auto;">
+        <g clip-path="url(#hd1)"><mask id="hm1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="402" height="96"><path d="M402 0H0V95.32H402V0Z" fill="white"/></mask><g mask="url(#hm1)">
+        <path d="M139.85 80.7C135.27 80.7 132.88 78.98 132.88 75.64V19.68C132.88 16.33 135.08 14.62 139.28 14.62H184.26C204.89 14.62 215.3 20.73 215.3 33.05V62.27C215.3 74.59 204.89 80.7 184.26 80.7H139.85ZM199.16 33.61C199.16 29.41 194.48 27.21 185.12 27.21H149.98C149.41 27.21 149.02 27.49 149.02 27.97V67.32C149.02 67.8 149.4 68.09 149.98 68.09H185.12C194.48 68.09 199.16 65.89 199.16 61.69V33.61Z" fill="white"/>
+        <path d="M312.8 40.97C312.8 53.29 302.39 59.4 281.76 59.4H246.52V74.58C246.52 78.97 243.85 81.17 238.4 81.17C232.95 81.17 230.38 78.97 230.38 74.58V19.68C230.38 16.33 232.58 14.62 236.78 14.62H281.76C302.39 14.62 312.8 20.73 312.8 33.05V40.98V40.97ZM246.52 46.79H282.62C291.98 46.79 296.66 44.59 296.66 40.39V33.61C296.66 29.41 291.98 27.21 282.62 27.21H247.47C246.9 27.21 246.51 27.49 246.51 28.07V46.79H246.52Z" fill="white"/>
+        <path d="M360.84 57.02L335.15 78.7C332.67 80.8 330.85 81.18 328.27 81.18C323.02 81.18 320.25 79.17 320.25 75.26C320.25 72.59 321.4 70.96 324.07 68.58L349.38 47.38L325.5 27.32C322.06 24.17 321.49 22.64 321.49 20.82C321.49 16.43 324.45 14.14 329.9 14.14C332.48 14.14 334.29 14.71 336.97 16.91L361.71 37.73L386.73 16.81C389.21 14.71 390.84 14.14 393.7 14.14C398.76 14.14 401.53 16.14 401.53 20.06C401.53 22.73 400.48 24.45 397.71 26.74L373.26 47.47L398 68.1C401.72 71.25 402.01 72.97 402.01 74.31C402.01 78.9 399.05 81.19 393.6 81.19C390.93 81.19 389.21 80.71 386.53 78.42L360.84 57.03V57.02Z" fill="white"/>
+        <path d="M1.91 54.41C16.13 59.7 30.32 65.07 44.55 70.34C45.28 70.61 46.16 70.8 46.99 70.8C47.47 70.8 47.93 70.74 48.33 70.59C63.32 65.23 78.27 59.77 93.2 54.25C93.85 54.01 94.62 53.04 94.65 52.38C94.8 49.34 94.72 46.28 94.72 43.04C93.88 43.26 93.25 43.38 92.65 43.6C78.55 48.75 64.45 53.91 50.35 59.05C49.15 59.49 48.01 59.97 46.75 59.97C46.18 59.97 45.58 59.87 44.93 59.62C31.29 54.39 17.59 49.3 3.91 44.17C2.73 43.73 1.53 43.34 0.04 42.82C0.04 46.11 0.12 48.92 0.01 51.72C-0.05 53.22 0.53 53.9 1.92 54.42" fill="white"/>
+        <path d="M1.91 29.88C16.13 35.17 30.32 40.54 44.55 45.81C45.28 46.08 46.16 46.27 46.99 46.27C47.47 46.27 47.93 46.21 48.33 46.06C63.32 40.7 78.27 35.24 93.2 29.72C93.85 29.48 94.62 28.51 94.65 27.84C94.8 24.8 94.72 21.74 94.72 18.5C93.88 18.72 93.25 18.84 92.65 19.06C78.55 24.21 64.45 29.37 50.35 34.51C49.15 34.95 48.01 35.43 46.75 35.43C46.18 35.43 45.58 35.33 44.93 35.08C31.29 29.85 17.59 24.76 3.91 19.63C2.73 19.19 1.53 18.8 0.04 18.28C0.04 21.58 0.11 24.39 0 27.19C-0.06 28.69 0.52 29.37 1.91 29.89" fill="white"/>
+        <path d="M1.91 78.93C16.13 84.22 30.32 89.59 44.55 94.86C45.28 95.13 46.16 95.32 46.99 95.32C47.47 95.32 47.93 95.26 48.33 95.11C63.32 89.76 78.27 84.29 93.2 78.77C93.85 78.53 94.62 77.56 94.65 76.9C94.8 73.86 94.72 70.8 94.72 67.56C93.88 67.78 93.25 67.9 92.65 68.12C78.55 73.27 64.45 78.43 50.35 83.57C49.15 84.01 48.01 84.49 46.75 84.49C46.18 84.49 45.58 84.39 44.93 84.14C31.29 78.91 17.59 73.82 3.91 68.69C2.73 68.25 1.53 67.86 0.04 67.34C0.04 70.63 0.12 73.44 0.01 76.23C-0.05 77.73 0.53 78.42 1.92 78.93" fill="white"/>
+        <path d="M76.86 45.95C81.73 44.17 86.61 42.39 91.48 40.61C91.57 40.58 91.65 40.56 91.73 40.53C88.63 39.38 85.53 38.21 82.43 37.05C77.26 38.95 72.34 40.75 67.59 42.47C70.68 43.63 73.76 44.79 76.85 45.95" fill="#8BBE41"/>
+        <path d="M12.17 37.14C9.12 38.26 6.06 39.38 3.01 40.5C3.67 40.72 4.31 40.95 4.95 41.19C7.88 42.29 10.82 43.39 13.75 44.49C15.07 44.99 16.41 45.49 17.75 45.99C20.79 44.88 23.84 43.77 26.88 42.65C24.46 41.74 22.06 40.84 19.68 39.95C17.18 39.01 14.67 38.08 12.17 37.14Z" fill="#8BBE41"/>
+        <path d="M4.95 16.66C7.88 17.76 10.82 18.86 13.75 19.96C15.08 20.46 16.42 20.96 17.75 21.46C26.61 18.22 35.46 14.98 44.32 11.75C45.52 11.31 46.66 10.83 47.92 10.83C48.49 10.83 49.09 10.93 49.74 11.18C58.76 14.64 67.81 18.04 76.85 21.43C81.73 19.65 86.6 17.87 91.47 16.09C91.56 16.06 91.64 16.04 91.72 16.01C77.84 10.85 63.99 5.6 50.1 0.46C49.39 0.19 48.5 0 47.67 0C47.19 0 46.73 0.06 46.33 0.21C31.86 5.38 17.43 10.66 3.01 15.98C3.67 16.2 4.31 16.43 4.95 16.67" fill="#8BBE41"/>
+        <path d="M82.43 61.57C77.26 63.47 72.34 65.27 67.6 66.99C70.69 68.15 73.77 69.31 76.86 70.47C81.73 68.69 86.61 66.91 91.48 65.13C91.57 65.1 91.65 65.08 91.73 65.05C88.63 63.9 85.53 62.73 82.43 61.57Z" fill="#8BBE41"/>
+        <path d="M12.17 61.66C9.12 62.78 6.06 63.9 3.01 65.02C3.67 65.25 4.31 65.47 4.95 65.71C7.88 66.81 10.82 67.91 13.75 69.01C15.07 69.51 16.41 70.01 17.75 70.51C20.79 69.4 23.84 68.29 26.88 67.17C24.46 66.26 22.06 65.36 19.68 64.47C17.18 63.53 14.67 62.6 12.17 61.66Z" fill="#8BBE41"/>
+        </g></g><defs><clipPath id="hd1"><rect width="402" height="95.32" fill="white"/></clipPath></defs>
+      </svg>
+      <div class="hero-sep"></div>
+      <!-- vStor text -->
+      <span style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:700;color:white;letter-spacing:1px;">vStor</span>
+      <div class="hero-sep"></div>
+      <!-- GuardMode text -->
+      <span style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:700;color:white;letter-spacing:1px;">GuardMode</span>
+    </div>
+    <div style="margin-left:32px;">
+      <div class="hero-text">
+        <h1>Brand Resource Center</h1>
+        <p>Logos, colors, typography, usage guidelines, and downloads</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nav">
+  <a href="#" class="active" data-tab="overview" onclick="return showTab('overview',this)">Overview</a>
+  <a href="#" data-tab="logos" onclick="return showTab('logos',this)">Logo Showcase</a>
+  <a href="#" data-tab="colors" onclick="return showTab('colors',this)">Colors</a>
+  <a href="#" data-tab="typography" onclick="return showTab('typography',this)">Typography</a>
+  <a href="#" data-tab="usage" onclick="return showTab('usage',this)">Usage Rules</a>
+  <a href="#" data-tab="downloads" onclick="return showTab('downloads',this)">Downloads</a>
+</div>
+
+<div class="page">
+
+<!-- OVERVIEW -->
+<div class="section active" id="tab-overview">
+  <div class="section-title">Product Family</div>
+  <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;max-width:720px;line-height:1.7;">Catalogic's on-premises data protection suite consists of three tightly integrated products. DPX is the core backup and recovery engine. vStor is the software-defined backup repository built on ZFS. GuardMode provides proactive ransomware detection and cyber resilience. Together they form a unified solution for secure, reliable, cost-effective data protection.</p>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <h3>DPX</h3>
+      <div class="tagline">Secure Data Protection</div>
+      <p>Enterprise backup and recovery with patented block-level protection. Reduces backup time by 90% while supporting physical, virtual, and cloud workloads. Covers Microsoft 365, Hyper-V, VMware, NDMP, bare metal, and tape.</p>
+    </div>
+    <div class="product-card">
+      <h3>vStor</h3>
+      <div class="tagline">Software Backup Appliance</div>
+      <p>Software-defined secondary storage built on ZFS. Provides deduplication, compression, immutable snapshots, encryption at rest, and point-to-point replication. Deploy on bare metal or as a virtual appliance on any block storage.</p>
+    </div>
+    <div class="product-card">
+      <h3>GuardMode</h3>
+      <div class="tagline">Proactive Ransomware Protection</div>
+      <p>Cyber resilience layer that detects ransomware early through blocklist matching, entropy analysis, honeypots, and access threshold monitoring. Identifies affected files, traces infection sources, and enables surgical recovery.</p>
+    </div>
+  </div>
+
+  <div class="section-title">Brand Hierarchy</div>
+  <div class="type-card">
+    <p style="font-size:13px;color:var(--text-muted);line-height:1.8;">
+      <strong style="color:var(--text);">Parent brand:</strong> Catalogic Software<br>
+      <strong style="color:var(--text);">Product line:</strong> DPX (always capitalized: "DPX", never "Dpx" or "dpx")<br>
+      <strong style="color:var(--text);">Sub-products:</strong> DPX vStor (or just "vStor" in context), DPX GuardMode (or just "GuardMode" in context)<br>
+      <strong style="color:var(--text);">Variant:</strong> DPX vPlus (Microsoft 365 protection module)<br><br>
+      When referring to the full suite, use "Catalogic DPX" on first mention, then "DPX" subsequently. vStor and GuardMode should be prefixed with "DPX" on first mention in external materials ("DPX vStor", "DPX GuardMode"), then can stand alone.
+    </p>
+  </div>
+</div>
+
+<!-- LOGO SHOWCASE -->
+<div class="section" id="tab-logos">
+
+  <div class="section-title">DPX &mdash; Color on White</div>
+  <div class="logo-grid">
+    <div class="logo-card bg-white">
+      <svg width="238" height="134" viewBox="0 0 238 134" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#d1)"><mask id="dm1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="43" y="50" width="152" height="36"><path d="M195 50H43V86H195V50Z" fill="white"/></mask><g mask="url(#dm1)"><mask id="dm2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="43" y="50" width="152" height="36"><path d="M195 50H43V86H195V50Z" fill="white"/></mask><g mask="url(#dm2)"><path d="M95.88 80.48C94.15 80.48 93.24 79.83 93.24 78.57V57.43C93.24 56.17 94.08 55.52 95.66 55.52H112.67C120.47 55.52 124.41 57.83 124.41 62.48V73.52C124.41 78.17 120.47 80.48 112.67 80.48H95.88ZM118.3 62.69C118.3 61.11 116.54 60.28 113 60.28H99.71C99.49 60.28 99.35 60.38 99.35 60.56V75.43C99.35 75.61 99.49 75.72 99.71 75.72H113C116.54 75.72 118.3 74.89 118.3 73.3V62.69Z" fill="#2D3494"/><path d="M161.27 65.47C161.27 70.13 157.34 72.43 149.54 72.43H136.21V78.17C136.21 79.83 135.2 80.66 133.14 80.66C131.08 80.66 130.11 79.83 130.11 78.17V57.43C130.11 56.17 130.94 55.52 132.53 55.52H149.54C157.34 55.52 161.27 57.83 161.27 62.48V65.47ZM136.21 67.67H149.86C153.4 67.67 155.17 66.84 155.17 65.25V62.69C155.17 61.11 153.4 60.28 149.86 60.28H136.57C136.36 60.28 136.21 60.38 136.21 60.6V67.67Z" fill="#2D3494"/><path d="M179.44 71.54L169.72 79.72C168.79 80.52 168.1 80.66 167.12 80.66C165.14 80.66 164.09 79.9 164.09 78.42C164.09 77.42 164.52 76.8 165.53 75.9L175.1 67.89L166.08 60.32C164.77 59.13 164.56 58.55 164.56 57.86C164.56 56.21 165.68 55.34 167.74 55.34C168.71 55.34 169.4 55.56 170.41 56.39L179.77 64.25L189.23 56.35C190.16 55.56 190.78 55.34 191.86 55.34C193.78 55.34 194.82 56.1 194.82 57.58C194.82 58.58 194.43 59.23 193.38 60.1L184.13 67.93L193.49 75.72C194.89 76.91 195 77.56 195 78.07C195 79.8 193.89 80.66 191.82 80.66C190.81 80.66 190.16 80.48 189.15 79.62L179.44 71.54Z" fill="#2D3494"/><path d="M43.72 70.55C49.1 72.55 54.46 74.58 59.84 76.57C60.12 76.67 60.45 76.74 60.77 76.74C60.95 76.74 61.12 76.72 61.27 76.66C66.94 74.64 72.59 72.57 78.24 70.49C78.49 70.4 78.78 70.03 78.79 69.78C78.84 68.63 78.81 67.48 78.81 66.26C78.5 66.34 78.26 66.38 78.03 66.47C72.7 68.41 67.37 70.36 62.04 72.3C61.58 72.47 61.15 72.65 60.68 72.65C60.46 72.65 60.23 72.61 59.99 72.52C54.83 70.54 49.65 68.62 44.48 66.68C44.03 66.52 43.58 66.37 43.02 66.17C43.02 67.41 43.05 68.48 43 69.53C42.98 70.1 43.2 70.36 43.73 70.55" fill="#2D3494"/><path d="M43.72 61.29C49.1 63.28 54.46 65.31 59.84 67.3C60.12 67.4 60.45 67.48 60.77 67.48C60.95 67.48 61.12 67.45 61.27 67.4C66.94 65.37 72.59 63.31 78.24 61.22C78.49 61.13 78.78 60.77 78.79 60.51C78.84 59.37 78.81 58.21 78.81 56.99C78.5 57.07 78.26 57.12 78.03 57.2C72.7 59.14 67.37 61.09 62.04 63.03C61.58 63.2 61.15 63.38 60.68 63.38C60.46 63.38 60.23 63.34 59.99 63.25C54.83 61.27 49.65 59.35 44.48 57.41C44.03 57.25 43.58 57.1 43.02 56.9C43.02 58.15 43.04 59.21 43 60.27C42.98 60.84 43.2 61.09 43.72 61.29" fill="#2D3494"/><path d="M43.72 79.81C49.1 81.81 54.46 83.84 59.84 85.83C60.12 85.93 60.45 86 60.77 86C60.95 86 61.12 85.98 61.27 85.92C66.94 83.9 72.59 81.83 78.24 79.75C78.49 79.66 78.78 79.29 78.79 79.04C78.84 77.9 78.81 76.74 78.81 75.52C78.5 75.6 78.26 75.64 78.03 75.73C72.7 77.67 67.37 79.62 62.04 81.56C61.58 81.73 61.15 81.91 60.68 81.91C60.46 81.91 60.23 81.87 59.99 81.78C54.83 79.8 49.65 77.88 44.48 75.94C44.03 75.78 43.58 75.63 43.02 75.43C43.02 76.68 43.05 77.74 43 78.79C42.98 79.36 43.2 79.62 43.73 79.81" fill="#2D3494"/><path d="M72.06 67.35C73.9 66.68 75.75 66.01 77.59 65.34C77.62 65.33 77.65 65.32 77.68 65.31C76.51 64.87 75.34 64.43 74.17 63.99C72.21 64.71 70.35 65.39 68.56 66.04C69.72 66.48 70.89 66.92 72.06 67.35" fill="#8BBE41"/><path d="M47.6 64.03C46.45 64.45 45.29 64.87 44.14 65.3C44.39 65.38 44.63 65.47 44.87 65.56C45.98 65.97 47.09 66.39 48.2 66.8C48.7 66.99 49.2 67.18 49.71 67.37C50.86 66.95 52.01 66.53 53.16 66.11C52.25 65.76 51.34 65.42 50.44 65.09C49.5 64.73 48.55 64.38 47.6 64.03Z" fill="#8BBE41"/><path d="M44.87 56.29C45.98 56.71 47.09 57.12 48.2 57.54C48.7 57.73 49.21 57.92 49.71 58.1C53.06 56.88 56.41 55.66 59.76 54.44C60.21 54.27 60.64 54.09 61.12 54.09C61.33 54.09 61.56 54.13 61.81 54.22C65.22 55.53 68.64 56.81 72.06 58.09C73.9 57.42 75.74 56.75 77.59 56.08C77.62 56.07 77.65 56.06 77.68 56.05C72.43 54.1 67.2 52.12 61.94 50.17C61.67 50.07 61.34 50 61.02 50C60.84 50 60.67 50.02 60.52 50.08C55.05 52.03 49.59 54.02 44.14 56.04C44.39 56.12 44.63 56.21 44.87 56.3" fill="#8BBE41"/><path d="M74.17 73.25C72.21 73.97 70.35 74.65 68.56 75.3C69.73 75.74 70.89 76.18 72.06 76.61C73.9 75.94 75.75 75.27 77.59 74.6C77.62 74.59 77.65 74.58 77.68 74.57C76.51 74.13 75.34 73.69 74.17 73.25Z" fill="#8BBE41"/><path d="M47.6 73.29C46.45 73.71 45.29 74.13 44.14 74.56C44.39 74.64 44.63 74.73 44.87 74.82C45.98 75.23 47.09 75.65 48.2 76.06C48.7 76.25 49.2 76.44 49.71 76.63C50.86 76.21 52.01 75.79 53.16 75.37C52.25 75.02 51.34 74.68 50.44 74.35C49.5 73.99 48.55 73.64 47.6 73.29Z" fill="#8BBE41"/></g></g></g><defs><clipPath id="d1"><rect width="152" height="36" fill="white" transform="translate(43 50)"/></clipPath></defs></svg>
+      <span class="card-label">Color on white</span>
+      <span class="card-file">SVG</span>
+    </div>
+    <div class="logo-card bg-dark">
+      <svg viewBox="0 0 402 96" xmlns="http://www.w3.org/2000/svg" style="max-width:260px;height:auto;"><g clip-path="url(#dw1)"><mask id="dwm1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="402" height="96"><path d="M402 0H0V95.32H402V0Z" fill="white"/></mask><g mask="url(#dwm1)"><path d="M139.85 80.7C135.27 80.7 132.88 78.98 132.88 75.64V19.68C132.88 16.33 135.08 14.62 139.28 14.62H184.26C204.89 14.62 215.3 20.73 215.3 33.05V62.27C215.3 74.59 204.89 80.7 184.26 80.7H139.85ZM199.16 33.61C199.16 29.41 194.48 27.21 185.12 27.21H149.98C149.41 27.21 149.02 27.49 149.02 27.97V67.32C149.02 67.8 149.4 68.09 149.98 68.09H185.12C194.48 68.09 199.16 65.89 199.16 61.69V33.61Z" fill="white"/><path d="M312.8 40.97C312.8 53.29 302.39 59.4 281.76 59.4H246.52V74.58C246.52 78.97 243.85 81.17 238.4 81.17C232.95 81.17 230.38 78.97 230.38 74.58V19.68C230.38 16.33 232.58 14.62 236.78 14.62H281.76C302.39 14.62 312.8 20.73 312.8 33.05V40.98ZM246.52 46.79H282.62C291.98 46.79 296.66 44.59 296.66 40.39V33.61C296.66 29.41 291.98 27.21 282.62 27.21H247.47C246.9 27.21 246.51 27.49 246.51 28.07V46.79H246.52Z" fill="white"/><path d="M360.84 57.02L335.15 78.7C332.67 80.8 330.85 81.18 328.27 81.18C323.02 81.18 320.25 79.17 320.25 75.26C320.25 72.59 321.4 70.96 324.07 68.58L349.38 47.38L325.5 27.32C322.06 24.17 321.49 22.64 321.49 20.82C321.49 16.43 324.45 14.14 329.9 14.14C332.48 14.14 334.29 14.71 336.97 16.91L361.71 37.73L386.73 16.81C389.21 14.71 390.84 14.14 393.7 14.14C398.76 14.14 401.53 16.14 401.53 20.06C401.53 22.73 400.48 24.45 397.71 26.74L373.26 47.47L398 68.1C401.72 71.25 402.01 72.97 402.01 74.31C402.01 78.9 399.05 81.19 393.6 81.19C390.93 81.19 389.21 80.71 386.53 78.42L360.84 57.03Z" fill="white"/><path d="M1.91 54.41C16.13 59.7 30.32 65.07 44.55 70.34C45.28 70.61 46.16 70.8 46.99 70.8C47.47 70.8 47.93 70.74 48.33 70.59C63.32 65.23 78.27 59.77 93.2 54.25C93.85 54.01 94.62 53.04 94.65 52.38C94.8 49.34 94.72 46.28 94.72 43.04C93.88 43.26 93.25 43.38 92.65 43.6C78.55 48.75 64.45 53.91 50.35 59.05C49.15 59.49 48.01 59.97 46.75 59.97C46.18 59.97 45.58 59.87 44.93 59.62C31.29 54.39 17.59 49.3 3.91 44.17C2.73 43.73 1.53 43.34 0.04 42.82C0.04 46.11 0.12 48.92 0.01 51.72C-0.05 53.22 0.53 53.9 1.92 54.42" fill="white"/><path d="M1.91 29.88C16.13 35.17 30.32 40.54 44.55 45.81C45.28 46.08 46.16 46.27 46.99 46.27C47.47 46.27 47.93 46.21 48.33 46.06C63.32 40.7 78.27 35.24 93.2 29.72C93.85 29.48 94.62 28.51 94.65 27.84C94.8 24.8 94.72 21.74 94.72 18.5C93.88 18.72 93.25 18.84 92.65 19.06C78.55 24.21 64.45 29.37 50.35 34.51C49.15 34.95 48.01 35.43 46.75 35.43C46.18 35.43 45.58 35.33 44.93 35.08C31.29 29.85 17.59 24.76 3.91 19.63C2.73 19.19 1.53 18.8 0.04 18.28C0.04 21.58 0.11 24.39 0 27.19C-0.06 28.69 0.52 29.37 1.91 29.89" fill="white"/><path d="M1.91 78.93C16.13 84.22 30.32 89.59 44.55 94.86C45.28 95.13 46.16 95.32 46.99 95.32C47.47 95.32 47.93 95.26 48.33 95.11C63.32 89.76 78.27 84.29 93.2 78.77C93.85 78.53 94.62 77.56 94.65 76.9C94.8 73.86 94.72 70.8 94.72 67.56C93.88 67.78 93.25 67.9 92.65 68.12C78.55 73.27 64.45 78.43 50.35 83.57C49.15 84.01 48.01 84.49 46.75 84.49C46.18 84.49 45.58 84.39 44.93 84.14C31.29 78.91 17.59 73.82 3.91 68.69C2.73 68.25 1.53 67.86 0.04 67.34C0.04 70.63 0.12 73.44 0.01 76.23C-0.05 77.73 0.53 78.42 1.92 78.93" fill="white"/><path d="M76.86 45.95C81.73 44.17 86.61 42.39 91.48 40.61C91.57 40.58 91.65 40.56 91.73 40.53C88.63 39.38 85.53 38.21 82.43 37.05C77.26 38.95 72.34 40.75 67.59 42.47C70.68 43.63 73.76 44.79 76.85 45.95" fill="#8BBE41"/><path d="M12.17 37.14C9.12 38.26 6.06 39.38 3.01 40.5C3.67 40.72 4.31 40.95 4.95 41.19C7.88 42.29 10.82 43.39 13.75 44.49C15.07 44.99 16.41 45.49 17.75 45.99C20.79 44.88 23.84 43.77 26.88 42.65C24.46 41.74 22.06 40.84 19.68 39.95C17.18 39.01 14.67 38.08 12.17 37.14Z" fill="#8BBE41"/><path d="M4.95 16.66C7.88 17.76 10.82 18.86 13.75 19.96C15.08 20.46 16.42 20.96 17.75 21.46C26.61 18.22 35.46 14.98 44.32 11.75C45.52 11.31 46.66 10.83 47.92 10.83C48.49 10.83 49.09 10.93 49.74 11.18C58.76 14.64 67.81 18.04 76.85 21.43C81.73 19.65 86.6 17.87 91.47 16.09C91.56 16.06 91.64 16.04 91.72 16.01C77.84 10.85 63.99 5.6 50.1 0.46C49.39 0.19 48.5 0 47.67 0C47.19 0 46.73 0.06 46.33 0.21C31.86 5.38 17.43 10.66 3.01 15.98C3.67 16.2 4.31 16.43 4.95 16.67" fill="#8BBE41"/><path d="M82.43 61.57C77.26 63.47 72.34 65.27 67.6 66.99C70.69 68.15 73.77 69.31 76.86 70.47C81.73 68.69 86.61 66.91 91.48 65.13C91.57 65.1 91.65 65.08 91.73 65.05C88.63 63.9 85.53 62.73 82.43 61.57Z" fill="#8BBE41"/><path d="M12.17 61.66C9.12 62.78 6.06 63.9 3.01 65.02C3.67 65.25 4.31 65.47 4.95 65.71C7.88 66.81 10.82 67.91 13.75 69.01C15.07 69.51 16.41 70.01 17.75 70.51C20.79 69.4 23.84 68.29 26.88 67.17C24.46 66.26 22.06 65.36 19.68 64.47C17.18 63.53 14.67 62.6 12.17 61.66Z" fill="#8BBE41"/></g></g><defs><clipPath id="dw1"><rect width="402" height="95.32" fill="white"/></clipPath></defs></svg>
+      <span class="card-label">White + green accent on dark</span>
+      <span class="card-file">SVG</span>
+    </div>
+  </div>
+
+  <div class="section-title">vStor &mdash; Color on White / White on Dark</div>
+  <div class="logo-grid">
+    <div class="logo-card bg-white">
+      <svg width="238" height="134" viewBox="0 0 238 134" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#vs1)"><path d="M46.84 67.09C56.17 67.09 65.69 64.79 65.69 60.48C65.69 59.71 65.4 59.04 64.82 58.37L63.96 57.31L63 58.37C61.55 60 55.4 61.72 46.85 61.72C38.29 61.72 32.23 60 30.69 58.37L29.73 57.31L28.87 58.47C28.29 59.14 28 59.81 28 60.57C28 64.89 37.52 67.09 46.85 67.09Z" fill="#2D3494"/><path d="M63.96 65.27L63 66.32C61.55 67.95 55.4 69.67 46.85 69.67C38.29 69.67 32.23 67.95 30.7 66.32L29.74 65.27L28.87 66.32C28.3 66.99 28.01 67.76 28.01 68.43C28.01 72.74 37.53 75.04 46.85 75.04C56.18 75.04 65.69 72.74 65.69 68.43C65.69 67.66 65.41 66.99 64.83 66.32L63.97 65.27H63.96Z" fill="#2D3494"/><path d="M63.96 73.22L63 74.28C61.55 75.91 55.4 77.63 46.85 77.63C38.29 77.63 32.23 75.81 30.7 74.18L29.74 73.12L28.87 74.18C28.3 74.94 28.01 75.62 28.01 76.38C28.01 80.7 37.53 83 46.85 83C56.18 83 65.69 80.7 65.69 76.38C65.69 75.62 65.41 74.94 64.83 74.27L63.97 73.22Z" fill="#2D3494"/><path d="M30.69 56.55L31.65 57.6C31.75 57.79 32.03 57.98 32.42 58.17C35.59 56.93 40.88 56.07 46.84 56.07C52.8 56.07 58.09 56.93 61.26 58.17C61.64 57.98 61.93 57.79 62.03 57.6L62.99 56.55L63.18 56.36C60.59 54.44 54.25 53 46.84 53C39.44 53 33.09 54.34 30.5 56.35L30.69 56.55Z" fill="#92BB26"/><path d="M98.28 79.07C97.42 80.13 96.74 80.32 95.49 80.32C94.25 80.32 93.67 80.13 92.8 79.07L81.26 65.27C80.59 64.51 80.5 63.93 80.5 63.45C80.5 61.91 81.55 61.05 83.57 61.05C85.02 61.05 85.69 61.44 86.36 62.3L95.49 73.8L104.72 62.3C105.39 61.44 106.07 61.05 107.51 61.05C109.43 61.05 110.49 61.82 110.49 63.45C110.49 63.93 110.39 64.5 109.72 65.27L98.28 79.07Z" fill="#2D3494"/><path d="M142.06 73.44C142.06 77.95 137.84 80.15 129.9 80.15H116.48C114.62 80.15 113.64 79.37 113.64 77.71C113.64 76.14 114.62 75.36 116.48 75.36H130.95C134.48 75.36 136.29 74.58 136.29 73.12V71.66C136.29 70.29 134.77 69.61 131.72 69.61H124.38C117.52 69.61 114.18 67.66 114.18 63.76V61.56C114.18 57.34 117.74 55.23 124.76 55.23H137.45C139.28 55.23 140.14 56 140.14 57.63C140.14 59.26 139.28 60.02 137.45 60.02H124.32C121.37 60.02 119.95 60.67 119.95 61.77V63.16C119.95 64.26 121.28 64.82 124.03 64.82H130.87C138.37 64.82 142.07 66.85 142.07 70.9V73.44H142.06Z" fill="#2D3494"/><path d="M153.59 65.78V78.42C153.59 80.16 152.66 81.07 150.71 81.07C148.76 81.07 147.83 80.16 147.83 78.42V65.78H147.17C145.41 65.78 144.57 64.96 144.57 63.43C144.57 61.8 145.5 60.99 147.17 60.99H147.83V57.93C147.83 56.19 148.76 55.38 150.71 55.38C152.66 55.38 153.59 56.3 153.59 57.93V60.99H158.43C160.2 60.99 161.03 61.8 161.03 63.43C161.03 64.96 160.1 65.78 158.43 65.78H153.59Z" fill="#2D3494"/><path d="M174.75 80.25C168.37 80.25 165.13 78.24 165.13 74.11V67.21C165.13 63.02 168.42 60.98 174.91 60.98H182.27C188.76 60.98 192.05 63.03 192.05 67.21V73.92C192.05 78.11 188.76 80.15 182.27 80.15L174.75 80.25ZM185.32 67.21C185.32 66.26 184.19 65.77 181.93 65.77H174.29C172.03 65.77 170.9 66.25 170.9 67.21V73.92C170.9 74.88 172.03 75.36 174.29 75.36H181.93C184.19 75.36 185.32 74.88 185.32 73.92V67.21Z" fill="#2D3494"/><path d="M196.86 67.24C196.86 63.04 200.02 60.99 206.25 60.99H208.21C210.07 60.99 211 61.77 211 63.33C211 64.9 210.07 65.78 208.21 65.78H205.98C203.75 65.78 202.63 66.17 202.63 67.14V77.91C202.63 79.57 201.7 80.45 199.74 80.45C197.79 80.45 196.86 79.57 196.86 77.91V67.24Z" fill="#2D3494"/></g><defs><clipPath id="vs1"><rect width="183" height="30" fill="white" transform="translate(28 53)"/></clipPath></defs></svg>
+      <span class="card-label">Color on white</span>
+      <span class="card-file">SVG</span>
+    </div>
+    <div class="logo-card bg-dark">
+      <span style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:white;letter-spacing:2px;">vStor</span>
+      <span class="card-label">White on dark (text representation)</span>
+    </div>
+  </div>
+
+  <div class="section-title">GuardMode &mdash; Color on White / White on Dark</div>
+  <div class="logo-grid">
+    <div class="logo-card bg-white">
+      <svg width="238" height="134" viewBox="0 0 238 134" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#gm1)"><path d="M73.13 76.45C68.9 76.45 66.78 75.11 66.78 72.41V65.57C66.78 64.52 67.41 63.98 68.71 63.98C70.01 63.98 70.67 64.52 70.67 65.57V72.46C70.67 73.07 71.43 73.38 72.94 73.38H77.61C79.14 73.38 79.86 73.07 79.86 72.46V65.57C79.86 64.52 80.52 63.98 81.81 63.98C83.1 63.98 83.76 64.52 83.76 65.57V72.41C83.76 75.11 81.64 76.45 77.44 76.45H73.13Z" fill="#2D3494"/><path d="M91 76.44C87.65 76.44 85.98 75.35 85.98 73.17V71.61C85.98 69.42 87.69 68.36 91.11 68.36H100.18V67.81C100.18 67.25 99.53 66.96 98.24 66.96H91.7C90.59 66.96 90.03 66.51 90.03 65.57C90.03 64.62 90.59 64.17 91.7 64.17H98.11C101.91 64.17 103.8 65.4 103.8 67.92V72.88C103.8 75.26 102.07 76.45 98.55 76.45H91ZM100.18 72.83V70.87H91.7C90.49 70.87 89.88 71.16 89.88 71.67V72.86C89.88 73.39 90.49 73.66 91.7 73.66H98.32C99.55 73.66 100.18 73.39 100.18 72.83Z" fill="#2D3494"/><path d="M106.86 68.08C106.86 65.47 108.98 64.17 113.21 64.17H114.46C115.69 64.17 116.29 64.66 116.29 65.69C116.29 66.72 115.69 67.24 114.46 67.24H112.98C111.5 67.24 110.76 67.52 110.76 68.13V74.74C110.76 75.8 110.1 76.32 108.8 76.32C107.5 76.32 106.86 75.77 106.86 74.74V68.08Z" fill="#2D3494"/><path d="M124.47 76.45C120.35 76.45 118.27 75.12 118.27 72.44V68.15C118.27 65.5 120.35 64.17 124.47 64.17H131.64V61.11C131.64 60.06 132.31 59.53 133.58 59.53C134.85 59.53 135.53 60.06 135.53 61.11V72.44C135.53 75.12 133.46 76.45 129.31 76.45H124.47ZM131.64 72.54V67.24H124.15C122.66 67.24 121.89 67.54 121.89 68.15V72.54C121.89 73.1 122.66 73.38 124.15 73.38H129.39C130.91 73.38 131.63 73.1 131.63 72.54H131.64Z" fill="#2D3494"/><path d="M161.98 66.57L154.92 75.45C154.53 75.94 153.91 76.47 152.78 76.47C151.65 76.47 151.03 75.91 150.66 75.45L143.61 66.55V74.85C143.61 75.92 142.96 76.46 141.65 76.46C140.33 76.46 139.71 75.92 139.71 74.85V61.9C139.71 60.74 140.38 60.13 141.67 60.13C142.87 60.13 143.47 60.62 144.07 61.36L152.78 72.34L161.52 61.36C162.12 60.62 162.71 60.15 163.91 60.13C165.21 60.13 165.87 60.76 165.87 61.9V74.85C165.87 75.92 165.23 76.46 163.94 76.46C162.65 76.46 161.98 75.92 161.98 74.85V66.57Z" fill="#2D3494"/><path d="M175.1 76.45C171 76.45 168.94 75.12 168.94 72.44V68.15C168.94 65.5 171 64.17 175.1 64.17H179.73C183.85 64.17 185.92 65.5 185.92 68.15V72.44C185.92 75.12 183.85 76.45 179.73 76.45H175.1ZM182.3 68.14C182.3 67.54 181.54 67.24 180.06 67.24H175.07C173.57 67.24 172.83 67.54 172.83 68.14V72.47C172.83 73.07 173.57 73.38 175.07 73.38H180.06C181.53 73.38 182.3 73.08 182.3 72.47V68.14Z" fill="#2D3494"/><path d="M194.9 76.45C190.77 76.45 188.7 75.12 188.7 72.44V68.15C188.7 65.5 190.78 64.17 194.9 64.17H202.06V61.11C202.06 60.06 202.74 59.53 204.01 59.53C205.28 59.53 205.96 60.06 205.96 61.11V72.44C205.96 75.12 203.89 76.45 199.74 76.45H194.9ZM202.06 72.54V67.24H194.58C193.09 67.24 192.32 67.54 192.32 68.15V72.54C192.32 73.1 193.09 73.38 194.58 73.38H199.82C201.34 73.38 202.06 73.1 202.06 72.54Z" fill="#2D3494"/><path d="M212.36 71.42V72.83C212.36 73.39 213.05 73.66 214.43 73.66H222.13C223.26 73.66 223.81 74.12 223.81 75.06C223.81 76 223.26 76.45 222.13 76.45H214.32C210.42 76.45 208.46 75.19 208.46 72.7V67.74C208.46 65.36 210.19 64.17 213.72 64.17H220.88C224.3 64.17 226 65.24 226 67.39V70.15C226 71.01 225.47 71.42 224.43 71.42H212.36ZM212.08 69.19H221.87C222.03 69.19 222.1 69.12 222.1 68.99V68.07C222.1 67.52 221.5 67.24 220.26 67.24H213.97C212.71 67.24 212.08 67.52 212.08 68.07V69.19Z" fill="#2D3494"/><path d="M64.05 67.22C63.91 66.6 63.35 66.12 62.68 66.12H57.89C57.11 66.12 56.48 66.76 56.48 67.54V67.78C56.48 68.56 57.11 69.19 57.89 69.19H60.37V71.77C60.37 72.82 59.23 73.38 56.98 73.38H52.05C49.81 73.38 48.68 72.83 48.68 71.77V64.7C48.68 63.8 49.72 63.33 51.79 63.33H57.62C58.8 63.33 59.37 62.82 59.37 61.77C59.37 60.73 58.8 60.27 57.62 60.27H51.72C47.09 60.27 44.79 61.7 44.79 64.59V71.92C44.79 74.95 47.13 76.45 51.82 76.45H57.24C61.91 76.45 64.27 74.95 64.27 71.92V68.11C64.27 67.75 64.19 67.46 64.05 67.23V67.22Z" fill="#2D3494"/><path d="M20.73 66.24C19.46 66.33 18.33 66.47 17.41 66.6C15.89 66.11 13.78 65.19 12.82 64.35C13.26 64.28 13.75 64.21 14.29 64.14C16.11 64.96 18.08 65.58 20.73 66.24Z" fill="#82BC45"/><path d="M20.36 72.99C19.23 73.07 18.22 73.19 17.37 73.31C16.07 72.56 14.18 70.97 14.14 70.93C15.95 71.72 17.83 72.35 20.36 72.99Z" fill="#82BC45"/><path d="M34.61 61.48C29.45 59.46 23.75 59.4 18.63 59.99C16.62 59.41 14.05 58.35 13.01 57.46C19.95 55.43 27.58 55.52 34.48 57.73C34.54 58.3 34.61 61.21 34.61 61.48Z" fill="#82BC45"/><path d="M34.49 63.95C34.38 65.23 34.22 66.48 33.99 67.71C28.79 67.06 16.47 65.49 12.02 61.85C11.97 60.64 12.03 58.63 12.11 57.95C16.67 61.96 32.41 63.7 34.48 63.95H34.49Z" fill="#2D3494"/><path d="M33.09 70.64C32.6 71.92 31.9 73.09 30.99 74.19C25.99 73.46 17.43 72.14 12.87 69.41C12.5 67.95 12.26 66.46 12.09 64.88C17.13 68.72 28.7 69.98 33.09 70.64Z" fill="#2D3494"/><path d="M28.64 76.78C27.39 77.79 25.94 78.75 24.18 79.7C23.97 79.81 23.68 80 23.28 80C23.06 80 22.56 79.81 22.45 79.75C17.9 77.37 14.46 73.98 13.36 71.06C17.91 75.69 24.16 76.67 28.64 76.77Z" fill="#2D3494"/></g><defs><clipPath id="gm1"><rect width="214" height="24" fill="white" transform="translate(12 56)"/></clipPath></defs></svg>
+      <span class="card-label">Color on white</span>
+      <span class="card-file">SVG</span>
+    </div>
+    <div class="logo-card bg-dark">
+      <span style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:white;letter-spacing:2px;">GuardMode</span>
+      <span class="card-label">White on dark (text representation)</span>
+    </div>
+  </div>
+
+  <div class="section-title">All Three &mdash; Suite Lockup</div>
+  <div class="logo-grid">
+    <div class="logo-card bg-light" style="gap:28px;flex-direction:column;padding:48px 32px;">
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center;">
+        <span style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:#2D3494;letter-spacing:1px;">DPX</span>
+        <span style="color:#ccc;font-size:20px;">+</span>
+        <span style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:#2D3494;letter-spacing:1px;">vStor</span>
+        <span style="color:#ccc;font-size:20px;">+</span>
+        <span style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:#2D3494;letter-spacing:1px;">GuardMode</span>
+      </div>
+      <span style="font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;">by Catalogic</span>
+    </div>
+    <div class="logo-card bg-blue" style="gap:28px;flex-direction:column;padding:48px 32px;">
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center;">
+        <span style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:white;letter-spacing:1px;">DPX</span>
+        <span style="color:rgba(255,255,255,0.3);font-size:20px;">+</span>
+        <span style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:white;letter-spacing:1px;">vStor</span>
+        <span style="color:rgba(255,255,255,0.3);font-size:20px;">+</span>
+        <span style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:white;letter-spacing:1px;">GuardMode</span>
+      </div>
+      <span style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">by Catalogic</span>
+    </div>
+  </div>
+</div>
+
+<!-- COLORS -->
+<div class="section" id="tab-colors">
+  <div class="section-title">Primary Palette</div>
+  <div class="palette-grid">
+    <div class="palette-card">
+      <div class="palette-swatch" style="background:#2D3494;"><span class="hex" style="color:#fff;">#2D3494</span></div>
+      <div class="palette-info">
+        <h4>Catalogic Blue</h4>
+        <table>
+          <tr><td>RGB</td><td>45, 52, 148</td></tr>
+          <tr><td>HSL</td><td>236&deg;, 53%, 38%</td></tr>
+          <tr><td>Usage</td><td>Primary brand color. All logo text, headings on white, buttons, links.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatch" style="background:#8BBE41;"><span class="hex" style="color:#fff;">#8BBE41</span></div>
+      <div class="palette-info">
+        <h4>Catalogic Green</h4>
+        <table>
+          <tr><td>RGB</td><td>139, 190, 65</td></tr>
+          <tr><td>HSL</td><td>84&deg;, 52%, 50%</td></tr>
+          <tr><td>Usage</td><td>Accent color. DPX icon chevrons, vStor lid, GuardMode shield accent, CTAs.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatch" style="background:#171717;"><span class="hex" style="color:#fff;">#171717</span></div>
+      <div class="palette-info">
+        <h4>Near Black</h4>
+        <table>
+          <tr><td>RGB</td><td>23, 23, 23</td></tr>
+          <tr><td>HSL</td><td>0&deg;, 0%, 9%</td></tr>
+          <tr><td>Usage</td><td>Dark backgrounds, footer, dark-mode surfaces.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Secondary / Tonal Variants</div>
+  <div class="palette-grid">
+    <div class="palette-card">
+      <div class="palette-swatch" style="background:#92BB26;"><span class="hex" style="color:#fff;">#92BB26</span></div>
+      <div class="palette-info">
+        <h4>vStor Green</h4>
+        <table>
+          <tr><td>RGB</td><td>146, 187, 38</td></tr>
+          <tr><td>Usage</td><td>vStor icon "lid" element. Slightly more saturated than the standard green.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatch" style="background:#82BC45;"><span class="hex" style="color:#fff;">#82BC45</span></div>
+      <div class="palette-info">
+        <h4>GuardMode Green</h4>
+        <table>
+          <tr><td>RGB</td><td>130, 188, 69</td></tr>
+          <tr><td>Usage</td><td>GuardMode shield accent stripes.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatch" style="background:#FFFFFF;border:1px solid #e4e6ed;"><span class="hex" style="color:#171717;">#FFFFFF</span></div>
+      <div class="palette-info">
+        <h4>White</h4>
+        <table>
+          <tr><td>RGB</td><td>255, 255, 255</td></tr>
+          <tr><td>Usage</td><td>Page backgrounds, card surfaces, logo on dark backgrounds.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Usage Guidance</div>
+  <div class="type-card">
+    <p style="font-size:13px;color:var(--text-muted);line-height:1.8;">
+      <strong style="color:var(--text);">Blue (#2D3494)</strong> is the dominant color across all three product logos and should carry through to headlines, navigation, and primary UI elements in product materials.<br><br>
+      <strong style="color:var(--text);">Green (#8BBE41)</strong> is an accent. It appears in the DPX icon chevrons, the vStor "lid," and the GuardMode shield. Use it sparingly for call-to-action buttons, success states, and highlights. Never use green as a background color for text. The green variants (#92BB26, #82BC45) are specific to their respective logo assets and should not be mixed between products.<br><br>
+      <strong style="color:var(--text);">Contrast ratio:</strong> Blue on white passes WCAG AA for both normal and large text. Green on white does not pass AA for normal text; use it only for large text, icons, or decorative elements.
+    </p>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="section" id="tab-typography">
+  <div class="section-title">Heading Font &mdash; Poppins</div>
+  <div class="type-card">
+    <h4>Poppins &mdash; Headings, titles, navigation</h4>
+    <div style="margin-bottom:20px;">
+      <div class="type-sample-heading" style="font-size:48px;font-weight:800;line-height:1.15;color:var(--blue);">Secure Data</div>
+      <div class="type-sample-heading" style="font-size:48px;font-weight:800;line-height:1.15;color:var(--green);">Protection</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div><div class="type-sample-heading" style="font-size:16px;font-weight:600;">Poppins SemiBold 600</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Section headers, nav labels</div></div>
+      <div><div class="type-sample-heading" style="font-size:16px;font-weight:700;">Poppins Bold 700</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Page titles, card headers</div></div>
+      <div><div class="type-sample-heading" style="font-size:16px;font-weight:800;">Poppins ExtraBold 800</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Hero headlines, feature titles</div></div>
+    </div>
+    <div class="type-spec">Font family: Poppins | Weights available: 400, 500, 600, 700, 800, 900 | Source: Google Fonts</div>
+  </div>
+
+  <div class="section-title">Body Font &mdash; Inter</div>
+  <div class="type-card">
+    <h4>Inter &mdash; Body text, UI, captions</h4>
+    <div style="margin-bottom:16px;">
+      <div class="type-sample-body" style="font-size:32px;font-weight:400;color:var(--black);line-height:1.3;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+      <div><div class="type-sample-body" style="font-size:14px;font-weight:400;">Inter Regular 400</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Body text</div></div>
+      <div><div class="type-sample-body" style="font-size:14px;font-weight:500;">Inter Medium 500</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Emphasis, labels</div></div>
+      <div><div class="type-sample-body" style="font-size:14px;font-weight:600;">Inter SemiBold 600</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Subheadings, buttons</div></div>
+      <div><div class="type-sample-body" style="font-size:14px;font-weight:700;">Inter Bold 700</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Strong emphasis</div></div>
+    </div>
+    <div class="type-spec">Font family: Inter | Weights available: 300&ndash;800 | Source: Google Fonts | Alternatives: Open Sans (legacy fallback)</div>
+  </div>
+
+  <div class="section-title">Typography in Context</div>
+
+  <div class="type-combo">
+    <div class="type-combo-label">Hero Section</div>
+    <div class="type-sample-heading" style="font-size:40px;font-weight:800;line-height:1.15;color:var(--black);margin-bottom:12px;">Protect Your Enterprise Data with Confidence</div>
+    <div class="type-sample-body" style="font-size:16px;font-weight:400;line-height:1.7;color:#555;max-width:640px;">Catalogic DPX delivers reliable, low-cost backup and recovery with built-in ransomware detection. Combined with the vStor software backup appliance and GuardMode cyber resilience, you get a complete data protection solution that scales from a single site to global deployments.</div>
+    <div class="type-spec">Heading: Poppins ExtraBold 800 / 40px / line-height 1.15 &nbsp;&bull;&nbsp; Body: Inter Regular 400 / 16px / line-height 1.7</div>
+  </div>
+
+  <div class="type-combo">
+    <div class="type-combo-label">Feature Card</div>
+    <div class="type-sample-heading" style="font-size:20px;font-weight:700;line-height:1.3;color:var(--black);margin-bottom:8px;">Proactive Ransomware Detection</div>
+    <div class="type-sample-body" style="font-size:14px;font-weight:400;line-height:1.7;color:#555;">GuardMode monitors filesystems for anomalies using blocklist matching, entropy analysis, honeypots, and access threshold detection. When ransomware is detected, it alerts backup administrators, identifies affected files, and enables surgical recovery of only the compromised data.</div>
+    <div class="type-spec">Heading: Poppins Bold 700 / 20px / line-height 1.3 &nbsp;&bull;&nbsp; Body: Inter Regular 400 / 14px / line-height 1.7</div>
+  </div>
+
+  <div class="type-combo">
+    <div class="type-combo-label">Data / UI Text</div>
+    <div style="display:flex;gap:32px;align-items:baseline;margin-bottom:8px;flex-wrap:wrap;">
+      <div><div class="type-sample-heading" style="font-size:36px;font-weight:800;color:var(--blue);">90%</div><div class="type-sample-body" style="font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;">Backup time reduction</div></div>
+      <div><div class="type-sample-heading" style="font-size:36px;font-weight:800;color:var(--green);">&lt; 1 sec</div><div class="type-sample-body" style="font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;">Blocklist detection</div></div>
+      <div><div class="type-sample-heading" style="font-size:36px;font-weight:800;color:var(--black);">4,000+</div><div class="type-sample-body" style="font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;">Ransomware patterns</div></div>
+    </div>
+    <div class="type-spec">Metric: Poppins ExtraBold 800 / 36px &nbsp;&bull;&nbsp; Label: Inter Medium 500 / 12px / uppercase</div>
+  </div>
+</div>
+
+<!-- USAGE RULES -->
+<div class="section" id="tab-usage">
+  <div class="section-title">Do</div>
+  <div class="rule-card rule-do"><div class="rule-icon">&#10003;</div><div><h5>Always capitalize product names correctly</h5><p>"DPX" is always all-caps. "vStor" starts with lowercase "v" then capital "S". "GuardMode" is one word with capital G and capital M. These apply everywhere: website, decks, documents, email.</p></div></div>
+  <div class="rule-card rule-do"><div class="rule-icon">&#10003;</div><div><h5>Prefix with "DPX" on first external mention</h5><p>Write "DPX vStor" and "DPX GuardMode" on first reference in customer-facing materials. After that, "vStor" and "GuardMode" alone are acceptable.</p></div></div>
+  <div class="rule-card rule-do"><div class="rule-icon">&#10003;</div><div><h5>Use Blue (#2D3494) as the dominant brand color</h5><p>Catalogic Blue is the primary color for all three products. Use it for headlines, navigation, and primary buttons. Green is an accent only.</p></div></div>
+  <div class="rule-card rule-do"><div class="rule-icon">&#10003;</div><div><h5>Use white logos on dark or busy backgrounds</h5><p>Over photography, dark UIs, or colored backgrounds, switch to the all-white version of each logo for readability.</p></div></div>
+  <div class="rule-card rule-do"><div class="rule-icon">&#10003;</div><div><h5>Include "by Catalogic" in partner/co-brand contexts</h5><p>When DPX logos appear alongside OEM or channel partner logos, add the Catalogic parent brand for attribution.</p></div></div>
+  <div class="rule-card rule-do"><div class="rule-icon">&#10003;</div><div><h5>Maintain clear space around each logo</h5><p>Leave a clear area equal to the height of the "D" in "DPX" around all edges of any product logo.</p></div></div>
+
+  <div class="section-title">Don't</div>
+  <div class="rule-card rule-dont"><div class="rule-icon">&#10007;</div><div><h5>Don't miscapitalize product names</h5><p>"Dpx", "dpx", "Vstor", "VSTOR", "Guardmode", "GUARDMODE" are all incorrect. Follow the exact capitalization rules above.</p></div></div>
+  <div class="rule-card rule-dont"><div class="rule-icon">&#10007;</div><div><h5>Don't use green as a text color on white</h5><p>Green (#8BBE41) on white does not meet WCAG AA contrast for body text. Use it only for icons, large display text, or decorative elements.</p></div></div>
+  <div class="rule-card rule-dont"><div class="rule-icon">&#10007;</div><div><h5>Don't stretch, rotate, or skew logos</h5><p>Always scale proportionally. Use the provided SVG files which maintain correct aspect ratio.</p></div></div>
+  <div class="rule-card rule-dont"><div class="rule-icon">&#10007;</div><div><h5>Don't mix green variants between products</h5><p>The DPX green (#8BBE41), vStor green (#92BB26), and GuardMode green (#82BC45) are specific to their logo assets. Don't swap them.</p></div></div>
+  <div class="rule-card rule-dont"><div class="rule-icon">&#10007;</div><div><h5>Don't separate the icon from its wordmark</h5><p>The DPX stacked-chevron icon, vStor disk icon, and GuardMode shield should only be used standalone when the product name is already established in context (e.g., app favicons).</p></div></div>
+</div>
+
+<!-- DOWNLOADS -->
+<div class="section" id="tab-downloads">
+  <div class="section-title">DPX Logos</div>
+  <div class="dl-section-card">
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">DPX Color (blue + green)</span><span class="dl-desc">Standard full-color logo for white/light backgrounds.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/dpx-color.svg" download>SVG</a><a class="dl-btn dl-btn-png" href="assets/png/dpx-color.png" download>PNG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">DPX White + Green Accent</span><span class="dl-desc">For dark backgrounds. White text with green icon accent.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/dpx-white-accent.svg" download>SVG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">DPX All White</span><span class="dl-desc">For dark or colored backgrounds. Fully white.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/dpx-white.svg" download>SVG</a></div></div>
+  </div>
+
+  <div class="section-title">vStor Logos</div>
+  <div class="dl-section-card">
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">vStor Color</span><span class="dl-desc">Standard full-color logo for white/light backgrounds.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/vstor-color.svg" download>SVG</a><a class="dl-btn dl-btn-png" href="assets/png/vstor-color.png" download>PNG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">vStor Stiletto Color</span><span class="dl-desc">Alternate icon variant.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/vstor-stiletto-color.svg" download>SVG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">vStor White</span><span class="dl-desc">For dark or colored backgrounds.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/vstor-white.svg" download>SVG</a></div></div>
+  </div>
+
+  <div class="section-title">GuardMode Logos</div>
+  <div class="dl-section-card">
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">GuardMode Color</span><span class="dl-desc">Standard full-color logo for white/light backgrounds.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/guardmode-color.svg" download>SVG</a><a class="dl-btn dl-btn-png" href="assets/png/guardmode-color.png" download>PNG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">GuardMode White</span><span class="dl-desc">For dark or colored backgrounds.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/guardmode-white.svg" download>SVG</a><a class="dl-btn dl-btn-png" href="assets/png/guardmode-white.png" download>PNG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">GuardMode White + Green</span><span class="dl-desc">White text with green shield accent.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/guardmode-logo-white-green.svg" download>SVG</a><a class="dl-btn dl-btn-png" href="assets/png/guardmode-white-green.png" download>PNG</a></div></div>
+  </div>
+
+  <div class="section-title">Additional Vector Sources</div>
+  <div class="dl-section-card">
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">DPX Logo (SVG master)</span><span class="dl-desc">Illustrator-style SVG.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/dpx-master.svg" download>SVG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">DPX-1 Logo (alternate)</span><span class="dl-desc">Alternate DPX logo variant.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/dpx-alt.svg" download>SVG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">DPX vPlus Logo</span><span class="dl-desc">Microsoft 365 protection module logo.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/dpx-vplus.svg" download>SVG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">vStor Logo (SVG master)</span><span class="dl-desc">Illustrator-style SVG.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/vstor-master.svg" download>SVG</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">GuardMode Logo (SVG master)</span><span class="dl-desc">Illustrator-style SVG.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-svg" href="assets/svg/guardmode-master.svg" download>SVG</a></div></div>
+  </div>
+
+  <div class="section-title">Complete Packages (ZIP)</div>
+  <div class="dl-section-card">
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">DPX Logos</span><span class="dl-desc">All DPX logo variants: color, white, white+accent, master, vPlus. SVG + PNG.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-zip" href="assets/packages/dpx-logos.zip" download>ZIP</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">vStor Logos</span><span class="dl-desc">All vStor logo variants: color, white, stiletto, master. SVG + PNG.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-zip" href="assets/packages/vstor-logos.zip" download>ZIP</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">GuardMode Logos</span><span class="dl-desc">All GuardMode logo variants: color, white, white+green, master. SVG + PNG + PDF.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-zip" href="assets/packages/guardmode-logos.zip" download>ZIP</a></div></div>
+  </div>
+
+  <div class="section-title">Brand Guidelines &amp; Logoboards</div>
+  <div class="dl-section-card">
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">GuardMode Logoboard</span><span class="dl-desc">Visual reference for GuardMode logo construction and clear space.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-pdf" href="assets/docs/guardmode-logoboard.pdf" download>PDF</a></div></div>
+    <div class="dl-row"><div class="dl-left"><div class="dl-info"><span class="dl-name">DPX Product Image</span><span class="dl-desc">Product identity reference.</span></div></div><div class="dl-buttons"><a class="dl-btn dl-btn-pdf" href="assets/docs/dpx-product-image.pdf" download>PDF</a></div></div>
+  </div>
+</div>
+
+</div><!-- .page -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div style="font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:12px;">DPX + vStor + GuardMode</div>
+      <p>DPX, vStor, and GuardMode are registered trademarks of Catalogic Software, Inc. All rights reserved. Unauthorized use, reproduction, or modification of these brand assets is prohibited.</p>
+      <p style="margin-top:8px;">For brand usage inquiries or to request assets not available on this page, contact <a href="mailto:marketing@catalogicsoftware.com">marketing@catalogicsoftware.com</a>.</p>
+    </div>
+    <div style="text-align:right;">
+      <p>&copy; 2024&ndash;2026 Catalogic Software, Inc.</p>
+      <p>200 Canal View Boulevard, Suite 104<br>Rochester, NY 14623, USA</p>
+      <p style="margin-top:12px;"><a href="https://www.catalogicsoftware.com">catalogicsoftware.com</a></p>
+      <p style="margin-top:12px;font-size:11px;opacity:0.6;">Last updated: April 2026</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(tab, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  el.classList.add('active');
+  return false;
+}
+</script>
+</body>
+</html>
