@@ -6,7 +6,7 @@
   --bg: #f7f7fa;
   --border: #e4e6ed;
   --text: #2c3e50;
-  --text-muted: #7f8c8d;
+  --text-muted: #5f6c6d;
   --card: #fff;
   --border-subtle: #f0f1f5;
   --text-body: #555;
@@ -24,7 +24,7 @@
   --fmt-pdf: #b71c1c;
   --fmt-pdf-bg: #ffebee;
   --fmt-pdf-hover: #ffcdd2;
-  --fmt-ai: #e65100;
+  --fmt-ai: #b34000;
   --fmt-ai-bg: #fff3e0;
   --fmt-ai-hover: #ffe0b2;
   --blue-deep: #1f2570;
@@ -139,16 +139,19 @@ h6 {
   scroll-margin-top: 64px;
 }
 
-.nav {
-  display: flex;
-  gap: 0;
+.nav-bar {
   background: white;
   border-bottom: 2px solid var(--border);
-  padding: 0 48px;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.nav {
+  display: flex;
+  gap: 0;
+  padding: 0 48px;
   overflow-x: auto;
 }
 
@@ -197,6 +200,7 @@ a:focus-visible {
 }
 
 .section-title {
+  font-family: inherit;
   font-family: 'Poppins', sans-serif;
   font-size: 11px;
   font-weight: 500;
@@ -211,6 +215,7 @@ a:focus-visible {
 
 .section-title-with-action {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
@@ -218,6 +223,7 @@ a:focus-visible {
 
 .section-title-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -302,7 +308,7 @@ a:focus-visible {
   padding: 16px;
 }
 
-.palette-info h4 {
+.palette-info h3 {
   font-size: 14px;
   margin-bottom: 8px;
 }
@@ -525,7 +531,7 @@ a:focus-visible {
   color: var(--danger);
 }
 
-.rule-card h5 {
+.rule-card h3 {
   font-size: 14px;
   margin-bottom: 2px;
 }
@@ -774,7 +780,7 @@ a:focus-visible {
 
 .footer a {
   color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .footer a:hover {
@@ -855,7 +861,6 @@ a:focus-visible {
 .footer-updated {
   margin-top: 12px;
   font-size: 11px;
-  opacity: 0.6;
 }
 
 .lead--narrow {
@@ -1041,4 +1046,13 @@ a:focus-visible {
 .logo-tile__img--guardmode {
   max-width: 80%;
   max-height: 36px;
+}
+
+/* Headings keep the look of the elements they replaced (h2 inside .section-title) */
+
+.section-title h2 {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
 }

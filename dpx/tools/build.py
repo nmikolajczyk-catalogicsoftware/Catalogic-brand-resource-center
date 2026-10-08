@@ -38,7 +38,7 @@ def variant_stems(data):
 
 
 def section(sec):
-    head = (f'  <div class="section-title section-title-with-action" id="{sec["id"]}"><span>{sec["title"]}</span>'
+    head = (f'  <div class="section-title section-title-with-action" id="{sec["id"]}"><h2>{sec["title"]}</h2>'
             f'<div class="section-title-actions"><a class="section-title-zip" href="assets/packages/{sec["zip"]}" download>'
             f'Download ZIP{ZIP_ICON}</a></div></div>\n  <div class="dl-section-card">\n')
     return head + "".join(row(r) for r in sec["rows"]) + "  </div>\n"
