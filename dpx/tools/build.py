@@ -6,6 +6,8 @@ The download rows are plain static HTML. Run from the repo root (dpx/):
 Pass --check to fail if the committed index.html is out of date.
 """
 import json
+import re
+import struct
 import sys
 from pathlib import Path
 
@@ -24,7 +26,7 @@ def row(item):
                       for label, cls, folder, ext in BUTTONS)
     # alt="" is intentional: the visible name next to the thumbnail describes it
     return (f'    <div class="dl-row"><div class="dl-left"><div class="dl-preview dl-preview-{item["preview"]}">'
-            f'<img src="assets/png/{f}.png" alt=""></div>'
+            f'<img src="assets/png/{f}.png" alt="" loading="lazy" decoding="async"></div>'
             f'<div class="dl-info"><span class="dl-name">{item["name"]}</span>'
             f'<span class="dl-desc">{item["desc"]}</span></div></div>'
             f'<div class="dl-buttons">{buttons}</div></div>\n')
@@ -37,11 +39,33 @@ def section(sec):
     return head + "".join(row(r) for r in sec["rows"]) + "  </div>\n"
 
 
+def image_size(path):
+    """Intrinsic (width, height) of an SVG (viewBox) or PNG, rounded to integers."""
+    if path.suffix == ".png":
+        w, h = struct.unpack(">II", path.read_bytes()[16:24])
+        return w, h
+    match = re.search(r'viewBox="([-\d.\s]+)"', path.read_text()[:2000])
+    _, _, w, h = (float(v) for v in match.group(1).split())
+    return round(w), round(h)
+
+
+def add_image_dimensions(html):
+    """Give every local <img> width/height so the browser reserves space (no layout shift)."""
+    def fix(match):
+        tag = match.group(0)
+        if " width=" in tag:
+            return tag
+        w, h = image_size(ROOT / match.group(1))
+        return tag.replace("<img ", f'<img width="{w}" height="{h}" ', 1)
+    return re.sub(r'<img [^>]*?src="(assets/[^"]+)"[^>]*>', fix, html)
+
+
 def build():
     data = json.loads((ROOT / "variants.json").read_text())
     template = (ROOT / "index.template.html").read_text()
     assert template.count(MARKER) == 1, "template must contain exactly one marker"
-    return template.replace("  " + MARKER + "\n", "\n".join(section(s) for s in data["sections"]))
+    html = template.replace("  " + MARKER + "\n", "\n".join(section(s) for s in data["sections"]))
+    return add_image_dimensions(html)
 
 
 if __name__ == "__main__":
