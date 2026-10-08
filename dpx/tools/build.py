@@ -32,6 +32,11 @@ def row(item):
             f'<div class="dl-buttons">{buttons}</div></div>\n')
 
 
+def variant_stems(data):
+    """{zip name: [stems]} in display order."""
+    return {sec["zip"]: [r["file"] for r in sec["rows"]] for sec in data["sections"]}
+
+
 def section(sec):
     head = (f'  <div class="section-title section-title-with-action" id="{sec["id"]}"><span>{sec["title"]}</span>'
             f'<div class="section-title-actions"><a class="section-title-zip" href="assets/packages/{sec["zip"]}" download>'

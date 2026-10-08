@@ -1,4 +1,9 @@
 {
+  "brand_colors": [
+    "#2D3494",
+    "#8BBE41",
+    "#FFFFFF"
+  ],
   "sections": [
     {
       "id": "dl-catalogic",
