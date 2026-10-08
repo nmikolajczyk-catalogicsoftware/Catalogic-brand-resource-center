@@ -50,6 +50,7 @@ Run from the `dpx/` folder. The build and checks use only the Python 3 standard 
 | Auto-format code | `npm run format --prefix tools` |
 | Install test tooling and browsers (once) | `cd tests && npm ci && npx playwright install chromium webkit` |
 | Run the end-to-end tests | `cd tests && npm test` |
+| Smoke-test a deployment (same suite, no local server) | `cd tests && BASE_URL=https://your-site.vercel.app npm run test:production` |
 | Pixel-compare against the local baselines (macOS only) / refresh them | `npm run test:visual` / `npm run test:update-visual` |
 
 **Add or change a variant:** put the SVG in `assets/svg/`, export the other formats (below), add the kind to a group in
