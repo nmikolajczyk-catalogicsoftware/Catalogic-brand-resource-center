@@ -83,8 +83,12 @@ CI (`.github/workflows/ci.yml`, `working-directory: dpx`) runs on every push and
 
 Pixel baselines (`npm run test:visual`) are stored for macOS only and are not run in CI (font rendering differs per OS).
 
-Accessibility decisions worth knowing: secondary text is `#5F6C6D` (AA on white and on the page background); white text on
+Accessibility decisions worth knowing: secondary text is `#5F6C6D` (AA on white and on the page background); no text is smaller than 12px; white text on
 the brand green `#8BBE41` is only 2.2:1, so the green swatch label is dark.
+
+## Measured quality (Lighthouse, mobile, local server, one run)
+
+Accessibility, Best Practices and SEO: **100** on every tab; Performance 94-99; CLS under 0.03. Lighthouse is not part of CI.
 
 ## Known limitations / hand-over notes
 
@@ -95,3 +99,4 @@ the brand green `#8BBE41` is only 2.2:1, so the green swatch label is dark.
   the Firefox results of the test suite were never seen locally. The other four profiles passed locally.
 - Fonts come from Google Fonts (allowed explicitly in the CSP). Self-hosting them would remove the third-party request.
 - The two brand-center repositories share `tabs.js` and the tooling as copies; keep them in sync when changing one.
+- Opening the site directly on `#downloads` first paints the Overview panel and then switches (one layout shift of the footer, CLS 0.09 on desktop; still rated "good"). Fixing it needs an early render-blocking script.
