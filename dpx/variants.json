@@ -1,0 +1,152 @@
+{
+  "sections": [
+    {
+      "id": "dl-catalogic",
+      "title": "Catalogic Logos",
+      "zip": "catalogic-logos.zip",
+      "rows": [
+        {
+          "file": "catalogic-color",
+          "preview": "color",
+          "name": "Catalogic Color (blue + green)",
+          "desc": "For white/light backgrounds."
+        },
+        {
+          "file": "catalogic-white",
+          "preview": "white",
+          "name": "Catalogic White + Green Accent",
+          "desc": "For dark backgrounds."
+        },
+        {
+          "file": "catalogic-all-white",
+          "preview": "white",
+          "name": "Catalogic All White",
+          "desc": "Single color, all elements in white. For dark backgrounds or when colors clash."
+        },
+        {
+          "file": "catalogic-icon",
+          "preview": "color",
+          "name": "Catalogic Sygnet (color)",
+          "desc": "Mark only, no wordmark."
+        },
+        {
+          "file": "catalogic-icon-white",
+          "preview": "white",
+          "name": "Catalogic Sygnet (white)",
+          "desc": "For dark backgrounds."
+        }
+      ]
+    },
+    {
+      "id": "dl-dpx",
+      "title": "DPX Logos",
+      "zip": "dpx-logos.zip",
+      "rows": [
+        {
+          "file": "dpx-color",
+          "preview": "color",
+          "name": "DPX Color (blue + green)",
+          "desc": "For white/light backgrounds."
+        },
+        {
+          "file": "dpx-white",
+          "preview": "white",
+          "name": "DPX White + Green Accent",
+          "desc": "For dark backgrounds."
+        },
+        {
+          "file": "dpx-all-white",
+          "preview": "white",
+          "name": "DPX All White",
+          "desc": "Single color, all elements in white. For dark backgrounds or when colors clash."
+        },
+        {
+          "file": "dpx-icon",
+          "preview": "color",
+          "name": "DPX Sygnet (color)",
+          "desc": "Chevron mark only, no wordmark."
+        },
+        {
+          "file": "dpx-icon-white",
+          "preview": "white",
+          "name": "DPX Sygnet (white)",
+          "desc": "For dark backgrounds."
+        }
+      ]
+    },
+    {
+      "id": "dl-vstor",
+      "title": "vStor Logos",
+      "zip": "vstor-logos.zip",
+      "rows": [
+        {
+          "file": "vstor-color",
+          "preview": "color",
+          "name": "vStor Color",
+          "desc": "For white/light backgrounds."
+        },
+        {
+          "file": "vstor-white",
+          "preview": "white",
+          "name": "vStor White + Green Accent",
+          "desc": "For dark backgrounds."
+        },
+        {
+          "file": "vstor-all-white",
+          "preview": "white",
+          "name": "vStor All White",
+          "desc": "Single color, all elements in white. For dark backgrounds or when colors clash."
+        },
+        {
+          "file": "vstor-icon",
+          "preview": "color",
+          "name": "vStor Sygnet (color)",
+          "desc": "Disk mark only, no wordmark."
+        },
+        {
+          "file": "vstor-icon-white",
+          "preview": "white",
+          "name": "vStor Sygnet (white)",
+          "desc": "For dark backgrounds."
+        }
+      ]
+    },
+    {
+      "id": "dl-guardmode",
+      "title": "GuardMode Logos",
+      "zip": "guardmode-logos.zip",
+      "rows": [
+        {
+          "file": "guardmode-color",
+          "preview": "color",
+          "name": "GuardMode Color",
+          "desc": "For white/light backgrounds."
+        },
+        {
+          "file": "guardmode-white",
+          "preview": "white",
+          "name": "GuardMode White + Green Accent",
+          "desc": "For dark backgrounds."
+        },
+        {
+          "file": "guardmode-all-white",
+          "preview": "white",
+          "name": "GuardMode All White",
+          "desc": "Single color, all elements in white. For dark backgrounds or when colors clash."
+        },
+        {
+          "file": "guardmode-icon",
+          "preview": "color",
+          "name": "GuardMode Sygnet (color)",
+          "desc": "Shield mark only, no wordmark."
+        },
+        {
+          "file": "guardmode-icon-white",
+          "preview": "white",
+          "name": "GuardMode Sygnet (white)",
+          "desc": "For dark backgrounds."
+        }
+      ]
+    }
+  ]
+}
