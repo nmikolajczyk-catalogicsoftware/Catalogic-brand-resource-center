@@ -12,3 +12,8 @@ Static brand site. Open `dpx/index.html` in a browser; there is no runtime depen
 
 Each row `<file>` expects: `assets/svg/<file>.svg`, `assets/png/<file>.png`, `assets/png/<file>@2x.png`,
 `assets/docs/<file>.pdf`, `assets/source/<file>.ai`.
+
+## Tabs
+
+`assets/js/tabs.js` implements the ARIA tab pattern (arrow keys, Home/End) and hash routing: `#colors` opens a tab and
+`#dl-dpx` deep-links to a download section. The same file is used by the CloudCasa brand center; keep both copies identical.
