@@ -22,7 +22,7 @@
           "file": "catalogic-all-white",
           "preview": "white",
           "name": "Catalogic All White",
-          "desc": "Single color, all elements in white. For dark backgrounds or when colors clash."
+          "desc": "Single color, all elements in white. Use only when the White + Green Accent version does not work, e.g. when the green clashes with the background."
         },
         {
           "file": "catalogic-icon",
@@ -59,7 +59,7 @@
           "file": "dpx-all-white",
           "preview": "white",
           "name": "DPX All White",
-          "desc": "Single color, all elements in white. For dark backgrounds or when colors clash."
+          "desc": "Single color, all elements in white. Use only when the White + Green Accent version does not work, e.g. when the green clashes with the background."
         },
         {
           "file": "dpx-icon",
@@ -96,7 +96,7 @@
           "file": "vstor-all-white",
           "preview": "white",
           "name": "vStor All White",
-          "desc": "Single color, all elements in white. For dark backgrounds or when colors clash."
+          "desc": "Single color, all elements in white. Use only when the White + Green Accent version does not work, e.g. when the green clashes with the background."
         },
         {
           "file": "vstor-icon",
@@ -133,7 +133,7 @@
           "file": "guardmode-all-white",
           "preview": "white",
           "name": "GuardMode All White",
-          "desc": "Single color, all elements in white. For dark backgrounds or when colors clash."
+          "desc": "Single color, all elements in white. Use only when the White + Green Accent version does not work, e.g. when the green clashes with the background."
         },
         {
           "file": "guardmode-icon",
