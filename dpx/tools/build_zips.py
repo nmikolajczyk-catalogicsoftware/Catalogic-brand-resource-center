@@ -16,11 +16,11 @@ import build  # noqa: E402
 ROOT = build.ROOT
 # (folder inside the zip, folder on disk, file suffix)
 FORMATS = [("svg", "svg", ".svg"), ("png", "png", ".png"), ("png", "png", "@2x.png"),
-           ("docs", "docs", ".pdf"), ("source", "source", ".ai")]
+           ("pdf", "docs", ".pdf"), ("source", "source", ".ai")]
 
 
 def specs():
-    """{zip name: [(path inside zip, file on disk)]}; files are grouped in svg/, png/, docs/ (PDF) and source/ (AI)."""
+    """{zip name: [(path inside zip, file on disk)]}; files are grouped in svg/, png/, pdf/ and source/ (AI)."""
     data = json.loads((ROOT / "variants.json").read_text())
     return {name: [(f"{arc}/{s}{ext}", ROOT / "assets" / disk / f"{s}{ext}") for s in stems for arc, disk, ext in FORMATS]
             for name, stems in build.variant_stems(data).items()}
