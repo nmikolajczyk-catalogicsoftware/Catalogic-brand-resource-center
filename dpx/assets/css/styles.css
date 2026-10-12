@@ -93,12 +93,10 @@ h6 {
 .hero-logos {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
-.hero-logos svg {
-  height: 36px;
-  width: auto;
+.hero-text {
+  margin-left: 8px;
 }
 
 .hero-text h1 {
@@ -792,7 +790,18 @@ a:focus-visible {
   .hero {
     padding: 32px 20px;
     flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
+  }
+
+  .hero-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero-text {
+    margin-left: 0;
   }
 
   .nav {
@@ -956,13 +965,9 @@ a:focus-visible {
 }
 
 .hero-logo {
-  height: 39.68px;
+  display: block;
+  height: 40px;
   width: auto;
-  margin: 0 0 0.32px 0;
-}
-
-.hero-text-wrap {
-  margin-left: 32px;
 }
 
 .hierarchy-logo {
