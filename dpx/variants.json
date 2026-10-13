@@ -1,5 +1,10 @@
 {
   "brand_colors": ["#2D3494", "#8BBE41", "#FFFFFF"],
+  "all_zip": {
+    "zip": "catalogic-all-logos.zip",
+    "title": "All logos",
+    "desc": "Every Catalogic, DPX, vStor and GuardMode logo in every format (SVG, PNG, PDF and AI) from all the sections below, in one ZIP."
+  },
   "sections": [
     {
       "id": "dl-catalogic",
