@@ -32,13 +32,13 @@
         {
           "file": "catalogic-icon",
           "preview": "color",
-          "name": "Catalogic Sygnet (color)",
+          "name": "Catalogic Icon (color)",
           "desc": "Mark only, no wordmark."
         },
         {
           "file": "catalogic-icon-white",
           "preview": "white",
-          "name": "Catalogic Sygnet (white)",
+          "name": "Catalogic Icon (white)",
           "desc": "For dark backgrounds."
         }
       ]
@@ -69,13 +69,13 @@
         {
           "file": "dpx-icon",
           "preview": "color",
-          "name": "DPX Sygnet (color)",
+          "name": "DPX Icon (color)",
           "desc": "Chevron mark only, no wordmark."
         },
         {
           "file": "dpx-icon-white",
           "preview": "white",
-          "name": "DPX Sygnet (white)",
+          "name": "DPX Icon (white)",
           "desc": "For dark backgrounds."
         }
       ]
@@ -106,13 +106,13 @@
         {
           "file": "vstor-icon",
           "preview": "color",
-          "name": "vStor Sygnet (color)",
+          "name": "vStor Icon (color)",
           "desc": "Disk mark only, no wordmark."
         },
         {
           "file": "vstor-icon-white",
           "preview": "white",
-          "name": "vStor Sygnet (white)",
+          "name": "vStor Icon (white)",
           "desc": "For dark backgrounds."
         }
       ]
@@ -143,13 +143,13 @@
         {
           "file": "guardmode-icon",
           "preview": "color",
-          "name": "GuardMode Sygnet (color)",
+          "name": "GuardMode Icon (color)",
           "desc": "Shield mark only, no wordmark."
         },
         {
           "file": "guardmode-icon-white",
           "preview": "white",
-          "name": "GuardMode Sygnet (white)",
+          "name": "GuardMode Icon (white)",
           "desc": "For dark backgrounds."
         }
       ]
